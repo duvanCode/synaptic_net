@@ -18,7 +18,7 @@ It’s designed for learning and experimenting with how neurons, layers, activat
 ## Installation
 
 ```bash
-composer require synaptic-net/core
+composer require synaptic-net/lab
 ```
 
 ---
