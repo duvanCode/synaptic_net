@@ -70,7 +70,6 @@ $training = [
 
 $stages = 5000;
 
-// Train the network
 $network->learn($stages, $training);
 
 // Test results
@@ -85,6 +84,8 @@ $tests = [
     [[0.3, 0.3], [0]]
 ];
 
+echo "<h3>TEST MULTILAYER XOR RESULTS</h3>";
+
 foreach ($tests as $val) {
     $inputs = $val[0];
     $expected = $val[1][0];
@@ -92,9 +93,12 @@ foreach ($tests as $val) {
     $output = $network->activate($inputs);
     $result = round($output[0]);
 
+    $color = $result == $expected ? 'green' : 'red';
+    $text = $result == $expected ? 'good' : 'bad';
+
     echo "Input: [" . implode(',', $inputs) . "] → Output: " .
         number_format($output[0], 3) .
-        " | Expected: $expected\n";
+        " | Expected: $expected <span style='color:$color'>$text</span><br>";
 }
 ```
 
@@ -102,10 +106,14 @@ foreach ($tests as $val) {
 
 ```
 TEST MULTILAYER XOR RESULTS
-Input: [0,0] → Output: 0.004 | Expected: 0
-Input: [0,1] → Output: 0.652 | Expected: 1
-Input: [1,0] → Output: 0.651 | Expected: 1
-Input: [1,1] → Output: 0.042 | Expected: 0
+Input: [0,0] → Output: 0.035 | Expected: 0 good
+Input: [0,1] → Output: 0.981 | Expected: 1 good
+Input: [1,0] → Output: 0.987 | Expected: 1 good
+Input: [1,1] → Output: 0.042 | Expected: 0 good
+Input: [0.2,0.8] → Output: 0.739 | Expected: 1 good
+Input: [0.9,0.2] → Output: 0.867 | Expected: 1 good
+Input: [0.7,0.7] → Output: 0.061 | Expected: 0 good
+Input: [0.3,0.3] → Output: 0.059 | Expected: 0 good
 ```
 
 ---
