@@ -1,0 +1,13 @@
+{
+  "name": "synaptic-net/lab",
+  "description": "A lightweight PHP library for building and training neural networks from scratch, featuring customizable neurons, activation functions, and backpropagation support.",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "SynapticNet\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.0"
+  }
+}
